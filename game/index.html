@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turkey Run — The Great Thanksgiving Escape</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #2b1d12;
+    height: 100%;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+  }
+  #wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  canvas {
+    display: block;
+    width: min(100vw, calc(100vh * 16 / 9));
+    height: min(100vh, calc(100vw * 9 / 16));
+    image-rendering: auto;
+    background: #7ec8ee;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720" aria-label="Turkey Run game canvas"></canvas>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
