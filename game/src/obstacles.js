@@ -36,7 +36,7 @@ export class Obstacle {
 
   /** Move left with the scrolling world; knives bob as they fly. */
   update(dt, scrollSpeed, timeSec) {
-    const speed = this.kind === 'knife' ? scrollSpeed * 1.35 : scrollSpeed;
+    const speed = this.kind === 'knife' ? scrollSpeed * 1.18 : scrollSpeed;
     this.x -= speed * dt;
     if (this.kind === 'knife') {
       this.y += Math.sin(timeSec * 5 + this.bobPhase) * 14 * dt;
@@ -144,7 +144,11 @@ export class ObstacleManager {
         OBSTACLE_MAX_GAP - difficulty * 0.55,
       );
       this.spawnTimer = Math.max(0.55, gap);
-      const kind = randomPick(this.random, ['oven', 'oven', 'knife']);
+      let kind = randomPick(this.random, ['oven', 'oven', 'knife']);
+      // Early in the run, keep knives rare: a knife arriving mid-jump over an
+      // oven asks for two dodges at once, which is unfair before the player
+      // has learned the timing.
+      if (kind === 'knife' && distanceM < 150 && this.random() < 0.6) kind = 'oven';
       const x = VIEW_WIDTH + randomRange(this.random, 0, 120);
       this.obstacles.push(new Obstacle(kind, x, this.random));
       // Late in the run, sometimes deal two hazards at once.
