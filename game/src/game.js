@@ -206,13 +206,12 @@ export class TurkeyRunGame {
     if (hit) this.takeHit(hit);
 
     // The farmer catches the turkey on his own slow creep.
-    if (this.state === 'playing' && this.farmer.hasCaught) {
-      this.endCaught('The farmer caught up and grabbed you!');
-    }
-
-    // Reaching the farm gate ends the run in escape.
+    // Escape is checked first: reaching the gate on the same frame wins.
     if (this.state === 'playing' && this.distanceM >= ESCAPE_DISTANCE_M) {
       this.endEscaped();
+    }
+    if (this.state === 'playing' && this.farmer.hasCaught) {
+      this.endCaught('The farmer caught up and grabbed you!');
     }
   }
 
