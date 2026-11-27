@@ -16,8 +16,8 @@ export const TURKEY_WIDTH = 66;
 export const TURKEY_HEIGHT = 74;
 export const TURKEY_DUCK_HEIGHT = 46;
 export const TURKEY_GRAVITY = 2600;
-export const TURKEY_JUMP_SPEED = 980;
-export const TURKEY_DOUBLE_JUMP_SPEED = 860;
+export const TURKEY_JUMP_SPEED = 1080;
+export const TURKEY_DOUBLE_JUMP_SPEED = 950;
 export const TURKEY_MAX_FALL_SPEED = 1400;
 
 // Scrolling speed (pixels per second) and how it grows as the run goes on.
@@ -28,8 +28,8 @@ export const SCROLL_ACCELERATION = 7.5;
 // The farmer: how far behind the turkey he starts, and how each event moves him.
 export const FARMER_START_GAP = 175;
 export const FARMER_CATCH_GAP = 26;
-export const FARMER_GAIN_PER_HIT = 58;
-export const FARMER_GAIN_PER_SECOND = 1.6;
+export const FARMER_GAIN_PER_HIT = 45;
+export const FARMER_GAIN_PER_SECOND = 1.0;
 export const FARMER_PUSHBACK_PER_CORN = 9;
 
 // Lives, scoring and the brief mercy window after a hit.
